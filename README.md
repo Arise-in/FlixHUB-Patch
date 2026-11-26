@@ -19,8 +19,8 @@
 ## Download & Install
 
 <!-- RELEASE_START -->
-- **Latest Release:** [`v1.0.0`](https://github.com/Arise-in/FlixHUB-Patch/releases/tag/v1.0.0) • [Download `app-release.apk`](https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.0.0/app-release.apk)
-- **Total Downloads:** **Auto-updated on every release**
+- **Latest Release:** [`v1.0.0`](https://github.com/Arise-in/FlixHUB-Patch/releases/tag/v1.0.0) • [Download `app-release.apk`](https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.0.0/FlixHUB-v1.0.0.apk)
+- **Total Downloads:** **1**
 <!-- RELEASE_END -->
 
 1. Download **`app-release.apk`** from the release link above.
