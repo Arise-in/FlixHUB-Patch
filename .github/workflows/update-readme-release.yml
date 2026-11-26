@@ -1,4 +1,4 @@
-name: Update README Release Info
+name: Update README & Changelogs
 
 on:
   release:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update README with latest release & downloads
+      - name: Update README & CHANGELOG.md with all releases
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -42,39 +42,70 @@ jobs:
               url = latest.get("html_url", f"https://github.com/{repo}/releases/latest")
               apk_assets = [a for a in latest.get("assets", []) if a.get("name", "").endswith(".apk")]
               dl_url = apk_assets[0]["browser_download_url"] if apk_assets else url
-              block = (
+              release_block = (
                   f"<!-- RELEASE_START -->\n"
                   f"- **Latest Release:** [`{tag}`]({url}) • [Download `app-release.apk`]({dl_url})\n"
                   f"- **Total Downloads:** **{total_downloads}**\n"
                   f"<!-- RELEASE_END -->"
               )
           else:
-              block = (
+              release_block = (
                   "<!-- RELEASE_START -->\n"
                   "- **Latest Release:** Pending\n"
                   "- **Total Downloads:** **0**\n"
                   "<!-- RELEASE_END -->"
               )
 
+          changelog_entries = []
+          for rel in releases:
+              r_tag = rel.get("tag_name", "")
+              r_name = rel.get("name") or r_tag
+              r_url = rel.get("html_url", "")
+              r_date = (rel.get("published_at") or "")[:10]
+              r_body = (rel.get("body") or "No release notes provided.").strip()
+              r_apks = [a for a in rel.get("assets", []) if a.get("name", "").endswith(".apk")]
+              r_dl = f" • [Download APK]({r_apks[0]['browser_download_url']})" if r_apks else ""
+              changelog_entries.append(
+                  f"### [`{r_tag}`]({r_url}) — {r_name} ({r_date}){r_dl}\n\n{r_body}"
+              )
+
+          changelog_md = "# Changelog\n\nAll releases for **FlixHub TV**.\n\n" + "\n\n---\n\n".join(changelog_entries) + "\n"
+          with open("CHANGELOG.md", "w", encoding="utf-8") as f:
+              f.write(changelog_md)
+
+          readme_changelog_block = (
+              "<!-- CHANGELOG_START -->\n"
+              + "\n\n".join(changelog_entries)
+              + "\n\n[Full Changelog](CHANGELOG.md)\n"
+              + "<!-- CHANGELOG_END -->"
+          )
+
           with open("README.md", "r", encoding="utf-8") as f:
               readme = f.read()
 
-          new_readme = re.sub(
+          readme = re.sub(
               r"<!-- RELEASE_START -->.*?<!-- RELEASE_END -->",
-              block,
+              release_block,
               readme,
               flags=re.DOTALL,
           )
+          if "<!-- CHANGELOG_START -->" in readme:
+              readme = re.sub(
+                  r"<!-- CHANGELOG_START -->.*?<!-- CHANGELOG_END -->",
+                  readme_changelog_block,
+                  readme,
+                  flags=re.DOTALL,
+              )
           with open("README.md", "w", encoding="utf-8") as f:
-              f.write(new_readme)
+              f.write(readme)
           PY
 
-      - name: Commit & Push README
+      - name: Commit & Push README and CHANGELOG.md
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add README.md CHANGELOG.md
           if ! git diff --cached --quiet; then
-            git commit -m "chore: auto-update latest release & download count"
+            git commit -m "chore: auto-update releases, downloads & CHANGELOG.md"
             git push
           fi

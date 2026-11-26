@@ -43,11 +43,15 @@
 
 ## Changelogs
 
+<!-- CHANGELOG_START -->
 ### `v1.0.0` — Initial Android TV Release
 - Cinema-grade tvOS-inspired frosted glass UI for Android TV & Google TV
 - Smooth 60fps D-Pad navigation with pivot-anchored horizontal glide & zero-escape wall locks
 - Hardware-accelerated Media3 ExoPlayer with multi-audio, speed controls & SDH captions
 - Built-in in-app OTA update modal with live progress & automatic post-install relaunch
+
+[Full Changelog](CHANGELOG.md)
+<!-- CHANGELOG_END -->
 
 ---
 
