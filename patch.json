@@ -1,17 +1,21 @@
 {
-  "versionCode": 1,
-  "versionName": "1.0.0",
-  "patchTag": "v1.0.0",
-  "title": "FlixHub TV v1.0.0",
-  "releaseNotes": [
-    "Baseline production release v1.0.0",
-    "Apple TV 60fps D-Pad fluidity engine & zero-escape wall locks",
-    "Hardware-accelerated Media3 ExoPlayer with multi-audio & SDH captions",
-    "GitHub OTA self-update controller with post-install auto-relaunch"
-  ],
-  "apkUrl": "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.0.0/app-release.apk",
-  "sha256": "",
-  "isMandatory": false,
-  "minSupportedVersionCode": 1,
-  "publishedAt": "2026-11-26T00:00:00Z"
+    "repo":  "Arise-in/FlixHUB-Patch",
+    "versionCode":  3,
+    "versionName":  "1.1.1",
+    "patchTag":  "v1.1.1",
+    "title":  "FlixHUB TV v1.1.1 — 4K Aliases, External USB \u0026 Offline Library",
+    "releaseNotes":  [
+                         "Server aliases enabled across app (GOKU, VEGITA, BULMA, ZENO, SUPREME, BERUS) with zero open provider names",
+                         "External USB drive \u0026 removable TV storage support with self-contained independent offline media folders",
+                         "Frosted glass Download Quality selector with 4K multi-audio variants, device storage check, and Pause/Resume/Cancel",
+                         "Redesigned Apple TV Library with spotlight banner, Continue Watching, and Offline Series Episode Thumbnails",
+                         "Live offline connectivity detection with bottom toast and automatic redirect to Saved Downloads"
+                     ],
+    "downloadUrl":  "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.1.1/app-release.apk",
+    "apkUrl":  "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.1.1/app-release.apk",
+    "apkSha256":  "1da0a4244c6e98771d6270f53f56b672fd959a56af1f99b26ec79cc4f379b39a",
+    "sha256":  "1da0a4244c6e98771d6270f53f56b672fd959a56af1f99b26ec79cc4f379b39a",
+    "isMandatory":  false,
+    "minSupportedVersionCode":  1,
+    "publishedAt":  "2026-11-26T13:00:05Z"
 }
