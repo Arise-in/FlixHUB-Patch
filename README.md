@@ -24,23 +24,19 @@
 
 ## Previews
 
-| Home & Hero Billboard | Search & Discovery |
+| Home & Hero Billboard | Title Detail Page |
 | :---: | :---: |
-| ![Home](assets/home.png) | ![Search](assets/search.png) |
+| ![Home](assets/home.png) | ![Detail](assets/detail.png) |
 
-<div align="center">
-
-| Frosted Glass Player HUD |
-| :---: |
-| ![Player HUD](assets/player.png) |
-
-</div>
+| Search & Discovery | Frosted Glass Player HUD |
+| :---: | :---: |
+| ![Search](assets/search.png) | ![Player HUD](assets/player.png) |
 
 ---
 
 ## Changelogs
 
-### `v1.0.0` — Initial Release
+### `tv-v1.0.0` — Initial Android TV Release
 - Cinema-grade tvOS-inspired frosted glass UI for Android TV & Google TV
 - Smooth 60fps D-Pad navigation with pivot-anchored horizontal glide & zero-escape wall locks
 - Hardware-accelerated Media3 ExoPlayer with multi-audio, speed controls & SDH captions
