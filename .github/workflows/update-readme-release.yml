@@ -33,6 +33,7 @@ jobs:
               asset.get("download_count", 0)
               for rel in releases
               for asset in rel.get("assets", [])
+              if asset.get("name", "").endswith(".apk")
           )
 
           if releases:
