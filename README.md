@@ -1,14 +1,16 @@
 <div align="center">
 
+<img src="assets/flixhub_logo.png" alt="FlixHub TV Logo" width="140" />
+
 # FlixHub TV
 
 **A cinema-grade Android TV & Google TV streaming experience.**
 
-[![Latest Release](https://img.shields.io/github/v/release/Arise-in/FlixHUB-Patch?style=for-the-badge&color=0A84FF&label=Latest%20Release)](https://github.com/Arise-in/FlixHUB-Patch/releases/latest)
-[![Platform](https://img.shields.io/badge/Platform-Android%20TV%20%7C%20Google%20TV-30D158?style=for-the-badge)](https://github.com/Arise-in/FlixHUB-Patch/releases/latest)
+[![Latest Release](https://img.shields.io/github/v/release/Arise-in/FlixHUB-Patch?include_prereleases&style=for-the-badge&color=0A84FF&label=Latest%20Release)](https://github.com/Arise-in/FlixHUB-Patch/releases)
+[![Platform](https://img.shields.io/badge/Platform-Android%20TV%20%7C%20Google%20TV-30D158?style=for-the-badge)](https://github.com/Arise-in/FlixHUB-Patch/releases)
 [![Downloads](https://img.shields.io/github/downloads/Arise-in/FlixHUB-Patch/total?style=for-the-badge&color=5E5CE6)](https://github.com/Arise-in/FlixHUB-Patch/releases)
 
-[Download Latest APK](https://github.com/Arise-in/FlixHUB-Patch/releases/latest) • [View Changelogs](#-changelogs) • [Previews](#-previews)
+[Download Latest APK](https://github.com/Arise-in/FlixHUB-Patch/releases/tag/v1.0.0) • [View Changelogs](#-changelogs) • [Previews](#-previews)
 
 </div>
 
@@ -16,7 +18,12 @@
 
 ## Download & Install
 
-1. Download **`app-release.apk`** from the [Latest Release](https://github.com/Arise-in/FlixHUB-Patch/releases/latest).
+<!-- RELEASE_START -->
+- **Latest Release:** [`v1.0.0`](https://github.com/Arise-in/FlixHUB-Patch/releases/tag/v1.0.0) • [Download `app-release.apk`](https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.0.0/app-release.apk)
+- **Total Downloads:** **Auto-updated on every release**
+<!-- RELEASE_END -->
+
+1. Download **`app-release.apk`** from the release link above.
 2. Install it on your Android TV / Google TV device.
 3. Future updates are delivered automatically in-app via **Settings → About → Check for Updates**.
 
@@ -36,7 +43,7 @@
 
 ## Changelogs
 
-### `tv-v1.0.0` — Initial Android TV Release
+### `v1.0.0` — Initial Android TV Release
 - Cinema-grade tvOS-inspired frosted glass UI for Android TV & Google TV
 - Smooth 60fps D-Pad navigation with pivot-anchored horizontal glide & zero-escape wall locks
 - Hardware-accelerated Media3 ExoPlayer with multi-audio, speed controls & SDH captions
