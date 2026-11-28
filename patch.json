@@ -1,21 +1,20 @@
 {
-    "repo":  "Arise-in/FlixHUB-Patch",
-    "versionCode":  3,
-    "versionName":  "1.1.1",
-    "patchTag":  "v1.1.1",
-    "title":  "FlixHUB TV v1.1.1 — 4K Aliases, External USB \u0026 Offline Library",
-    "releaseNotes":  [
-                         "Server aliases enabled across app (GOKU, VEGITA, BULMA, ZENO, SUPREME, BERUS) with zero open provider names",
-                         "External USB drive \u0026 removable TV storage support with self-contained independent offline media folders",
-                         "Frosted glass Download Quality selector with 4K multi-audio variants, device storage check, and Pause/Resume/Cancel",
-                         "Redesigned Apple TV Library with spotlight banner, Continue Watching, and Offline Series Episode Thumbnails",
-                         "Live offline connectivity detection with bottom toast and automatic redirect to Saved Downloads"
-                     ],
-    "downloadUrl":  "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.1.1/app-release.apk",
-    "apkUrl":  "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.1.1/app-release.apk",
-    "apkSha256":  "1da0a4244c6e98771d6270f53f56b672fd959a56af1f99b26ec79cc4f379b39a",
-    "sha256":  "1da0a4244c6e98771d6270f53f56b672fd959a56af1f99b26ec79cc4f379b39a",
-    "isMandatory":  false,
-    "minSupportedVersionCode":  1,
-    "publishedAt":  "2026-11-26T13:00:05Z"
+  "repo": "Arise-in/FlixHUB-Patch",
+  "versionCode": 8,
+  "versionName": "1.4.0",
+  "patchTag": "v1.4.0",
+  "title": "FlixHUB TV v1.4.0 Stable",
+  "releaseNotes": [
+    "Stable Android TV & Google TV release v1.4.0 (Build 8)",
+    "tvOS-inspired frosted glass navigation drawer, Hero Billboard, and 60fps D-Pad pivot scrolling with wall locks",
+    "Encrypted native security vault (libflixcore.so + AES-256-GCM core.pak) & Ed25519-signed OTA updater",
+    "Offline 4K Library with external USB storage support, Pause/Resume downloads, and Media3 ExoPlayer HUD"
+  ],
+  "downloadUrl": "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.4.0/app-release.apk",
+  "apkUrl": "https://github.com/Arise-in/FlixHUB-Patch/releases/download/v1.4.0/app-release.apk",
+  "apkSha256": "5eadeff75e767fd08902a4633097cf507207ab5e97331036e3f49cd709a64a0f",
+  "sha256": "5eadeff75e767fd08902a4633097cf507207ab5e97331036e3f49cd709a64a0f",
+  "isMandatory": false,
+  "minSupportedVersionCode": 1,
+  "publishedAt": "2026-11-28T14:50:00Z"
 }

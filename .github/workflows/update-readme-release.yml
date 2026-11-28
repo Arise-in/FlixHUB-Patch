@@ -36,25 +36,29 @@ jobs:
               if asset.get("name", "").endswith(".apk")
           )
 
-          if releases:
-              latest = releases[0]
-              tag = latest.get("tag_name", "v1.0.0")
-              url = latest.get("html_url", f"https://github.com/{repo}/releases/latest")
-              apk_assets = [a for a in latest.get("assets", []) if a.get("name", "").endswith(".apk")]
-              dl_url = apk_assets[0]["browser_download_url"] if apk_assets else url
-              release_block = (
-                  f"<!-- RELEASE_START -->\n"
-                  f"- **Latest Release:** [`{tag}`]({url}) • [Download `app-release.apk`]({dl_url})\n"
-                  f"- **Total Downloads:** **{total_downloads}**\n"
-                  f"<!-- RELEASE_END -->"
-              )
-          else:
-              release_block = (
-                  "<!-- RELEASE_START -->\n"
-                  "- **Latest Release:** Pending\n"
-                  "- **Total Downloads:** **0**\n"
-                  "<!-- RELEASE_END -->"
-              )
+          tv_releases = [r for r in releases if not r.get("tag_name", "").startswith("mobile-")]
+          mobile_releases = [r for r in releases if r.get("tag_name", "").startswith("mobile-")]
+
+          lines = ["<!-- RELEASE_START -->"]
+          if tv_releases:
+              tv = tv_releases[0]
+              tv_tag = tv.get("tag_name", "v1.4.0")
+              tv_url = tv.get("html_url", f"https://github.com/{repo}/releases/tag/{tv_tag}")
+              tv_apks = [a for a in tv.get("assets", []) if a.get("name", "").endswith(".apk")]
+              tv_apk_name = tv_apks[0]["name"] if tv_apks else "app-release.apk"
+              tv_dl = tv_apks[0]["browser_download_url"] if tv_apks else tv_url
+              lines.append(f"- **Latest TV Release:** [`{tv_tag}`]({tv_url}) • [Download `{tv_apk_name}`]({tv_dl})")
+          if mobile_releases:
+              mb = mobile_releases[0]
+              mb_tag = mb.get("tag_name", "mobile-v1.0.0")
+              mb_url = mb.get("html_url", f"https://github.com/{repo}/releases/tag/{mb_tag}")
+              mb_apks = [a for a in mb.get("assets", []) if a.get("name", "").endswith(".apk")]
+              mb_apk_name = mb_apks[0]["name"] if mb_apks else "flixhub-mobile-release.apk"
+              mb_dl = mb_apks[0]["browser_download_url"] if mb_apks else mb_url
+              lines.append(f"- **Latest Mobile Release:** [`{mb_tag}`]({mb_url}) • [Download `{mb_apk_name}`]({mb_dl})")
+          lines.append(f"- **Total Downloads:** **{total_downloads}**")
+          lines.append("<!-- RELEASE_END -->")
+          release_block = "\n".join(lines)
 
           changelog_entries = []
           for rel in releases:
@@ -64,12 +68,12 @@ jobs:
               r_date = (rel.get("published_at") or "")[:10]
               r_body = (rel.get("body") or "No release notes provided.").strip()
               r_apks = [a for a in rel.get("assets", []) if a.get("name", "").endswith(".apk")]
-              r_dl = f" • [Download APK]({r_apks[0]['browser_download_url']})" if r_apks else ""
+              r_dl = f" • [Download `{r_apks[0]['name']}`]({r_apks[0]['browser_download_url']})" if r_apks else ""
               changelog_entries.append(
                   f"### [`{r_tag}`]({r_url}) — {r_name} ({r_date}){r_dl}\n\n{r_body}"
               )
 
-          changelog_md = "# Changelog\n\nAll releases for **FlixHub TV**.\n\n" + "\n\n---\n\n".join(changelog_entries) + "\n"
+          changelog_md = "# Changelog\n\nAll releases for **FlixHUB TV** and **FlixHUB Mobile**.\n\n" + "\n\n---\n\n".join(changelog_entries) + "\n"
           with open("CHANGELOG.md", "w", encoding="utf-8") as f:
               f.write(changelog_md)
 
